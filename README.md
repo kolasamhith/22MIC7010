@@ -1,1 +1,3 @@
-# 22MIC7010
+node_modules
+dist
+.env
