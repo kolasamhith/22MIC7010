@@ -1,9 +1,9 @@
 import type { NotificationResponse } from "../types/notification";
 
-const TOKEN = import.meta.env.VITE_ACCESS_TOKEN;
+const TOKEN = localStorage.getItem("access_token");
 
 const BASE_URL =
-  "http://4.224.186.213/evaluation-service/notifications";
+  "/api/evaluation-service/notifications";
 
 export async function fetchNotifications(
   page: number,
@@ -17,6 +17,7 @@ export async function fetchNotifications(
   }
 
   const response = await fetch(url, {
+    method: "GET",
     headers: {
       Authorization: `Bearer ${TOKEN}`,
     },
